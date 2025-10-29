@@ -1,7 +1,10 @@
+using razorpagesExample.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
 var app = builder.Build();
 
