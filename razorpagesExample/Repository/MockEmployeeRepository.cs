@@ -16,6 +16,12 @@ public class MockEmployeeRepository : IEmployeeRepository
             new Employee{Id = 4, Name="Batuhan Özcan", Email="batuhanozcan@live.com",Photo="4.jpg", Department="Health"}
         };
     }
+
+    public Employee Create(Employee entity)
+    {
+        throw new NotImplementedException();
+    }
+
     public IEnumerable<Employee> GetAll()
     {
         return _employeeList;

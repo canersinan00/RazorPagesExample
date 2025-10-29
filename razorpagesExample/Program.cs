@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+builder.Services.AddTransient<IEmployeeRepository, SQLEmployeeRepository>();
 
 builder.Services.AddDbContext<razorpagesExample.Models.DataContext>(opt =>  // ← fully-qualified
     opt.UseSqlite(builder.Configuration.GetConnectionString("Default")));
