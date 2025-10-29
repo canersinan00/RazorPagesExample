@@ -4,20 +4,25 @@ namespace razorpagesExample.Repository;
 
 public class MockEmployeeRepository : IEmployeeRepository
 {
-    private List<Employees> _employeeList;
+    private List<Employee> _employeeList;
 
     public MockEmployeeRepository()
     {
-        _employeeList = new List<Employees>()
+        _employeeList = new List<Employee>()
         {
-            new Employees{Id = 1, Name="Caner Sinan", Email="canersinan@live.com",Photo="1.jpg", Department="IT"},
-            new Employees{Id = 2, Name="Berkay Özcan", Email="berkayozcan@live.com",Photo="2.jpg", Department="IT"},
-            new Employees{Id = 3, Name="Samet Öztürk", Email="sametozturk@live.com",Photo="3.jpg", Department="IT"},
-            new Employees{Id = 4, Name="Batuhan Özcan", Email="batuhanozcan@live.com",Photo="4.jpg", Department="IT"}
+            new Employee{Id = 1, Name="Caner Sinan", Email="canersinan@live.com",Photo="1.jpg", Department="IT"},
+            new Employee{Id = 2, Name="Berkay Özcan", Email="berkayozcan@live.com",Photo="2.jpg", Department="IT"},
+            new Employee{Id = 3, Name="Samet Öztürk", Email="sametozturk@live.com",Photo="3.jpg", Department="IT"},
+            new Employee{Id = 4, Name="Batuhan Özcan", Email="batuhanozcan@live.com",Photo="4.jpg", Department="Health"}
         };
     }
-    public IEnumerable<Employees> GetAll()
+    public IEnumerable<Employee> GetAll()
     {
         return _employeeList;
+    }
+
+    public Employee GetById(int id)
+    {
+        return _employeeList.FirstOrDefault(i => i.Id == id);
     }
 }
